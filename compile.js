@@ -10,7 +10,7 @@ var sass = require('node-sass'),
 	bDebug = true;
 
 var em = new EventEmitter;
-function compileDirectory(srcDir, destDir) {
+function compileDirectory(srcDir, destDir, includePathsArray) {
 
 	var files = finder.findSync(srcDir);
 	var filesLength = files.length;
@@ -18,7 +18,7 @@ function compileDirectory(srcDir, destDir) {
 	em.setMaxListeners(filesLength);
 	for ( var int = 0; int < filesLength; int++) {
 		var isLast = (int+1) == filesLength;
-		compile(files[int], srcDir, destDir, isLast);
+		compile(files[int], srcDir, destDir, includePathsArray, isLast);
 		em.once("exit", function(){
 			setTimeout(process.exit, 500);
 		});
@@ -26,7 +26,7 @@ function compileDirectory(srcDir, destDir) {
 
 }
 
-function compile(srcPath, srcDir, destDir, endProcessFlag) {
+function compile(srcPath, srcDir, destDir, includePathsArray, endProcessFlag) {
 	if(path.extname(srcPath) == '.scss') {
 		var srcFileName = srcPath.split(srcDir)[1];
 		var outputPath = destDir + srcFileName.replace('.scss', '.css');
@@ -64,7 +64,7 @@ function compile(srcPath, srcDir, destDir, endProcessFlag) {
 								}
 							});
 						});
-					}, { include_paths: [ '../css_src' ], output_style: 'expanded' });
+					}, { include_paths: includePathsArray/*, output_style: 'compressed'*/ });
 				});
 			}
 		});
@@ -85,5 +85,6 @@ process.on('message', function(data) {
 	bDebug = data.debug;
 	debug("data.srcDir", data.srcDir);
 	debug("data.destDir", data.destDir);
-	compileDirectory(data.srcDir, data.destDir);
+	debug("data.includePathsArray", data.includePathsArray);
+	compileDirectory(data.srcDir, data.destDir, data.includePathsArray);
 });

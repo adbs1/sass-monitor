@@ -1,14 +1,7 @@
-var sassMonitor = {
-		data: {
-			srcDir: '../../../css_src',
-			destDir: '../../../WebContent/static/css',
-			debug: true
-		}
-	};
+var sassMonitor = require("./config");
 
 var sass = require('node-sass'),
 	watch = require('watch'),
-	async = require('async'),
 	finder = require('findit'),
 	fs = require('fs'),
 	basename = require('path').basename,
@@ -37,7 +30,7 @@ function compileAll() {
 	var fork = require('child_process').fork(__dirname+'/compile.js', function(){
 		debug("compile.js completed for pid", fork.pid);
 	});
-	fork.send({srcDir: sassMonitor.data.srcDir, destDir: sassMonitor.data.destDir, debug: sassMonitor.data.debug});
+	fork.send({srcDir: sassMonitor.data.srcDir, destDir: sassMonitor.data.destDir, debug: sassMonitor.data.debug, includePathsArray: sassMonitor.data.includesPath});
 	fork.on('exit', function (code) {
 		debug("exit detected so killing process", fork.pid);
 		fork.kill();

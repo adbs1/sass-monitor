@@ -9,7 +9,13 @@ module.exports = function(grunt) {
 			var fork = require('child_process').fork(__dirname+'/../compile.js', function(){
 				debug("compile.js completed for pid", fork.pid);
 			});
-			fork.send({srcDir: sassMonitor.data.srcDir, destDir: sassMonitor.data.destDir, debug: bDebug});
+			
+			fork.send({
+				srcDir: sassMonitor.data.srcDir,
+				destDir: sassMonitor.data.destDir,
+				includePathsArray: sassMonitor.data.includePaths,
+				debug: bDebug
+			});
 			fork.on('exit', function (code) {
 				debug("exit detected so killing process", fork.pid);
 				fork.kill();
