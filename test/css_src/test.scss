@@ -1,0 +1,8 @@
+@import 'testInclude';
+
+#test-id {
+	.test-class {
+		width: $test-variable;
+	}
+}
+

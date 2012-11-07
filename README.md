@@ -9,11 +9,18 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		sassMonitor: {
-			data: {
-				srcDir: '../css_src',
-				destDir: '../css',
+			staticBuild: {
+				srcDir: 'css_src',
+				destDir: 'WebContent/static/css',
+				includePaths: ['environments/static/','css_src/'],
 				debug: true
-			}
+			},
+			production: {
+				srcDir: 'css_src',
+				destDir: '../GamesWorkshop/Production/gw.war/static/css',
+				includePaths: ['environments/prod/','css_src/'],
+				debug: true
+			},
 		},
 		watch: {
 			css: {
