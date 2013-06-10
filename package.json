@@ -1,18 +1,18 @@
 {
-	"name": "sassMonitor",
+	"name": "sass_monitor",
 	"version": "1.0.0",
-	"private": true,
+	"private": false,
 	"author": {
 		"name": "Andrew Saunders",
 		"email": "adbs1@yahoo.com"
 	},
 	"dependencies": {
-		"node-sass": "~0.2.5",
+		"node-sass": "~0.4.4",
 		"watch": "0.5.1",
 		"findit": "0.1.2",
 		"mkdirp": "0.3.4"
 	},
 	"engines": {
-		"node": "*"
+		"node": ">=0.10.0"
 	}
 }

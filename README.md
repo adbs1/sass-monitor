@@ -1,6 +1,6 @@
 ## Beware
 
-This is very much a work in progress, it serves the purpose I need and that's as a task in grunt to compile scss within a directory. It's compiled on os-x lion so may not work for others. An npm install should rebuild node sass for other os' .
+This is very much a work in progress, it serves the purpose I need and that's as a task in grunt to compile scss within a directory to a chosen output dir. Be sure to run $ npm install before use.
 
 ## Grunt usage
 
@@ -42,4 +42,4 @@ NOTE: Partial imports are relative to the grunt installation folder so for the a
 
 node sassMonitor.js
 
-NOTE: As above the imports will be relative .. I've edited the libsass files to give better output when your path is wrong.
+NOTE: As above the imports will be relative ..
