@@ -1,6 +1,10 @@
-## Beware
+## Summary
 
-This is very much a work in progress, it serves the purpose I need and that's as a task in grunt to compile scss within a directory to a chosen output dir. Be sure to run $ npm install before use.
+sass_monitor is a wrapper for the node_sass module add the functionality to compile named directories of SASS files.
+
+It can be run standalone or as a Grunt task.
+
+Be sure to run $ npm install before use.
 
 ## Grunt usage
 
