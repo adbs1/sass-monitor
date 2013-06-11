@@ -1,4 +1,4 @@
-// Use to configure standalone sassMonitor. Not applicable for the grunt task, see the grunt.js for that.
+// Use to configure standalone sass-monitor. Not applicable for the grunt task, see the grunt.js for that.
 
 module.exports.data = {
 	srcDir: 'test/css_src',

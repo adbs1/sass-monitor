@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 	'use strict';
 
-	grunt.registerMultiTask('sassMonitor', 'Compile SCSS to CSS', function() {
+	grunt.registerMultiTask('sass-monitor', 'Compile SCSS to CSS', function() {
 		var config = this.data;
 		var bDebug = (typeof config.debug !== undefined)? config.debug : false;
 

@@ -1,10 +1,32 @@
 ## Summary
 
-sass_monitor is a wrapper for the node_sass module add the functionality to compile named directories of SASS files.
+sass-monitor is a wrapper for the node_sass module adding the functionality to compile named directories of SASS files.
 
 It can be run standalone or as a Grunt task.
 
 Be sure to run $ npm install before use.
+
+## Testing
+
+1) In the root of the package run:
+	
+	$ node sass-monitor
+2) Edit the ./test/css_src/test.scss file
+3) You should now see:
+
+	a) A log entry in the terminal: 'File changed : test/css_src/test.scss'
+	b) The ./test/css_output/test.css file with your compiled changes.
+
+
+## Standalone
+
+1) Edit config.js to suit path requirements.
+2) At the command prompt run:
+
+	$ node sassMonitor
+
+NOTE: As above the imports will be relative ..
+
 
 ## Grunt usage
 
@@ -21,7 +43,7 @@ module.exports = function(grunt) {
 			},
 			production: {
 				srcDir: 'css_src',
-				destDir: '../GamesWorkshop/Production/gw.war/static/css',
+				destDir: '../yourproject/Production/static/css',
 				includePaths: ['environments/prod/','css_src/'],
 				debug: true
 			},
@@ -41,9 +63,3 @@ module.exports = function(grunt) {
 };
 
 NOTE: Partial imports are relative to the grunt installation folder so for the above example it would be @import '../css_src/common';
-
-## Standalone
-
-node sassMonitor.js
-
-NOTE: As above the imports will be relative ..
