@@ -37,13 +37,13 @@ module.exports = function(grunt) {
 		sassMonitor: {
 			staticBuild: {
 				srcDir: 'css_src',
-				destDir: 'WebContent/static/css',
+				destDir: '../developmentPath/static/css',
 				includePaths: ['environments/static/','css_src/'],
 				debug: true
 			},
 			production: {
 				srcDir: 'css_src',
-				destDir: '../yourproject/Production/static/css',
+				destDir: '../productionPath/static/css',
 				includePaths: ['environments/prod/','css_src/'],
 				debug: true
 			},
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.loadNpmTasks('sassMonitor');
+	grunt.loadNpmTasks('sass-monitor');
 
 	// Default task.
 	grunt.registerTask('default', 'watch');
